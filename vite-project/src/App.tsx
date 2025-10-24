@@ -1,12 +1,10 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { CategoryLayout } from "./cases/categories/components/category-layout"
 
 function App() {
-  function App() {
+
   return (
     <div className="wrapper">
+      <CategoryLayout></CategoryLayout>
     </div>
   )
 }
