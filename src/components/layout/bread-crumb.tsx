@@ -6,12 +6,16 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
-import { CategoryDataTable } from "./data-table/category-data-table"
 
-export function CategoryLayout() {
-    return (
-        <div className="flex flex-col gap-4 py-4">
-            <Breadcrumb>
+type BreadCrumbProps = {
+    title: string;
+}
+
+export function BreadCrumb({
+    title
+}: BreadCrumbProps) {
+    return(
+        <Breadcrumb>
                 <BreadcrumbList>
                     <BreadcrumbItem>
                         <BreadcrumbLink href="/">Home</BreadcrumbLink>
@@ -21,11 +25,6 @@ export function CategoryLayout() {
                         <BreadcrumbPage>Categorias</BreadcrumbPage>
                     </BreadcrumbItem>
                 </BreadcrumbList>
-            </Breadcrumb>
-
-            <div>
-                <CategoryDataTable />
-            </div>
-        </div>
+        </Breadcrumb>
     )
 }
