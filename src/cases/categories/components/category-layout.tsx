@@ -1,49 +1,44 @@
-
-import { BreadCrumb } from "@/components/layout/bread-crumb"
-import { CategoryDataTable } from "./data-table/category-data-table"
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group"
+import { CategoryDataTable } from "./data-table/category-data-table"
+import { BreadCrumb } from "@/components/layout/bread-crumb"
+import { Plus, Search } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { Outlet, useNavigate } from "react-router-dom"
-import { Plus, Search } from "lucide-react";
 
 export function CategoryLayout() {
-    
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
-    function hendleCreate() {
-        navigate('/categories/new');
-    } 
-    
+    function handleSearch() {
+        navigate('/categories')
+    }
+
+    function handleCreate() {
+        navigate('/categorias/new')
+    }
+
     return (
         <div className="p-4">
 
-            <BreadCrumb title="Categorias" />
-            
-            <div className="flex flex-col gap-4 py-4">
+            <BreadCrumb pageTitle="Categorias" />
 
-                <div className="flex flex-ruw justify-end gap-4 my-4">
+            <div className="flex flex-col py-4 gap-4">
+                <div className="flex flex-row justify-end gap-4 my-4">
                     <InputGroup className="max-w-96">
                         <InputGroupInput placeholder="Search..." />
-                        <InputGroupAddon>
-                        <Search />
-                        </InputGroupAddon>
+                            <InputGroupAddon>
+                                <Search />
+                            </InputGroupAddon>
                         <InputGroupAddon align="inline-end">12 results</InputGroupAddon>
                     </InputGroup>
-                    <button 
-                        onClick={hendleCreate}
-                    >
+                    <Button onClick={handleCreate}>
                         <Plus />
                         Adicionar
-                    </button>
+                    </Button>
                 </div>
 
-                <div>
-                    <CategoryDataTable />
-                    <Outlet />
-                </div>
-
+                <CategoryDataTable />
+                <Outlet />
             </div>
-
-            
         </div>
     )
 }
