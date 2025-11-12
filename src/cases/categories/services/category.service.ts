@@ -12,10 +12,10 @@ export const CategoryService = {
 
     async create(category: CategoryDTO): Promise<CategoryDTO> {
         const result = await api.post(_ENDPOINT, category);
-            return result.data;
+        return result.data;
     },
 
-    async getByid(id:string): Promise<CategoryDTO> {
+    async getById(id: string): Promise<CategoryDTO> {
         const result = await api.get(`${_ENDPOINT}/${id}`);
         return result.data;
     },
@@ -27,7 +27,6 @@ export const CategoryService = {
 
     async delete(id: string): Promise<void>{
         await api.delete(`${_ENDPOINT}/${id}`);
-        
     }
 
 };
