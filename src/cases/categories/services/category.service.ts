@@ -1,7 +1,7 @@
 import { api } from "../../../lib/axios";
 import type { CategoryDTO } from "../dtos/category.dto";
 
-const _ENDPOINT = '/categories';
+const _ENDPOINT = "/categories";
 
 export const CategoryService = {
 
@@ -10,13 +10,13 @@ export const CategoryService = {
         return result.data;
     },
 
-    async create(category: CategoryDTO): Promise<CategoryDTO> {
-        const result = await api.post(_ENDPOINT, category);
+    async getById(id: string): Promise<CategoryDTO> {
+        const result = await api.get(`${_ENDPOINT}/${id}`);
         return result.data;
     },
 
-    async getById(id: string): Promise<CategoryDTO> {
-        const result = await api.get(`${_ENDPOINT}/${id}`);
+    async create(category: CategoryDTO): Promise<CategoryDTO> {
+        const result = await api.post(_ENDPOINT, category);
         return result.data;
     },
 
@@ -25,8 +25,7 @@ export const CategoryService = {
         return result.data;
     },
 
-    async delete(id: string): Promise<void>{
+    async delete(id: string): Promise<void> {
         await api.delete(`${_ENDPOINT}/${id}`);
     }
-
 };
