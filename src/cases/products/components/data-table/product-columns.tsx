@@ -92,4 +92,4 @@ export const productColumns: ColumnDef<ProductDTO>[] = [
       )
     },
   }
-]
+];
